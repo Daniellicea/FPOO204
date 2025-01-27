@@ -2,9 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Cálculo de paga:");
+
         System.out.println("Intruduce el numero de horas trabajadas: ");
         int horas = scanner.nextInt();
         System.out.print("Introduce el costo por hora: ");
@@ -20,6 +18,13 @@ public class Main {
         System.out.println("Primera letra en mayúsculas: " + capitalizeWords(nombreCompleto));
         System.out.println();
 
+        // 3. Sumar numeros enteros hasta X
+        System.out.print("Introduce un número entero X: ");
+        int x = scanner.nextInt();
+        int suma = 0;
+        for (int i = 1; i <= x; i++) {
+            suma += i;
+        }
         }
     }
 }
