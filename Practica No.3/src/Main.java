@@ -12,7 +12,13 @@ public class Main {
         double paga = horas * costo_por_hora;
         System.out.println("La total a pagar es: " + paga);
 
-
+        // 2. Preguntar nombre del usuario
+        System.out.print("Introduce tu nombre completo: ");
+        String nombreCompleto = scanner.nextLine();
+        System.out.println("Minúsculas: " + nombreCompleto.toLowerCase());
+        System.out.println("Mayúsculas: " + nombreCompleto.toUpperCase());
+        System.out.println("Primera letra en mayúsculas: " + capitalizeWords(nombreCompleto));
+        System.out.println();
 
         }
     }
