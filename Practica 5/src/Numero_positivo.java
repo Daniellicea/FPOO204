@@ -20,6 +20,6 @@ public class Numero_positivo {
             System.out.println();
         }
 
-        
+
     }
 }
