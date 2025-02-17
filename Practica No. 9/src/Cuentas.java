@@ -1,33 +1,58 @@
-import javax.swing.*;
-import java.util.Random;
-import java.util.ArrayList;
-
 public class Cuentas {
-    private ArrayList<Integer> folio = new ArrayList<Integer>();
-    private ArrayList<Integer> id = new ArrayList<>();
-    private ArrayList<String> titular_cuenta = new ArrayList<>();
-    private ArrayList<Integer> edad_cuenta = new ArrayList<Integer>();
-    private ArrayList<Integer> saldo_cuenta = new ArrayList<>();
+    public int noCuenta;
+    public String titular;
+    public int edad;
+    public double saldo;
 
-
-
-    public void crear_cuenta(String nombre_cuenta, int edad, int saldo) {
-        int i = 0;
-        Random random = new Random();
-        int numerofolio=  random.nextInt(5);
-        String mensaje = "Cuenta creada con éxito:\n" +
-                "ID de la cuenta: " + i++ + "\n" +
-                "Número de cuenta: " + random.nextInt(5) + "\n" +
-                "Nombre del titular: " + nombre_cuenta + "\n" +
-                "Edad del titular: " + edad + "\n" +
-                "Saldo inicial: " + saldo;
-        id.add(i);
-        folio.add(numerofolio);
-        titular_cuenta.add(nombre_cuenta);
-        edad_cuenta.add(edad);
-        saldo_cuenta.add(saldo);
-
-        JOptionPane.showMessageDialog(null, mensaje, "Cuenta Creada", JOptionPane.INFORMATION_MESSAGE);
+    // Constructor corregido
+    public Cuentas(int noCuenta, String titular, int edad, double saldo) {
+        this.noCuenta = noCuenta;
+        this.titular = titular;
+        this.edad = edad;
+        this.saldo = saldo;
     }
 
+    public void mostrarInfo() {
+        System.out.println("\nInformación de la Cuenta:");
+        System.out.println("No. Cuenta: " + noCuenta);
+        System.out.println("Titular: " + titular);
+        System.out.println("Edad: " + edad);
+        System.out.println("Saldo: $" + saldo);
+    }
+
+    public void consultarSaldo() {
+        System.out.println("El saldo actual de la cuenta " + noCuenta + " es: $" + saldo);
+    }
+
+    public void ingresarEfectivo(double cantidad) {
+        if (cantidad > 0) {
+            saldo += cantidad;
+            System.out.println("Se han depositado $" + cantidad + " en la cuenta " + noCuenta);
+        } else {
+            System.out.println("La cantidad debe ser mayor a 0.");
+        }
+    }
+
+    public void retirarEfectivo(double cantidad) {
+        if (cantidad > 0 && cantidad <= saldo) {
+            saldo -= cantidad;
+            System.out.println("Se han retirado $" + cantidad + " de la cuenta " + noCuenta);
+        } else if (cantidad > saldo) {
+            System.out.println("Fondos insuficientes en la cuenta " + noCuenta);
+        } else {
+            System.out.println("La cantidad debe ser mayor a 0.");
+        }
+    }
+
+    public void depositarOtraCuenta(Cuentas otraCuenta, double cantidad) {
+        if (cantidad > 0 && cantidad <= saldo) {
+            saldo -= cantidad;
+            otraCuenta.saldo += cantidad;
+            System.out.println("Se han transferido $" + cantidad + " de la cuenta " + noCuenta + " a la cuenta " + otraCuenta.noCuenta);
+        } else if (cantidad > saldo) {
+            System.out.println("Fondos insuficientes en la cuenta " + noCuenta);
+        } else {
+            System.out.println("La cantidad debe ser mayor a 0.");
+        }
+    }
 }

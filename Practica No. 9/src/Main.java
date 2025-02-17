@@ -3,19 +3,29 @@ import javax.swing.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //Se requiere un programa para la administración de cuenta en caja
-        //popular, con el programa podremos consultar saldo, ingresar
-        //efectivo, retirar efectivo y depositar a otra cuenta, cada cuenta tiene
-        //registrados los siguientes datos No.Cuenta, titular, edad, saldo
-        Funciones Fun = new Funciones();
-        Cuentas cuentas = new Cuentas();
+        // Crear cuentas bancarias
+        Cuentas cuenta1 = new Cuentas(12345, "Juan Pérez", 30, 1000.0);
+        Cuentas cuenta2 = new Cuentas(67890, "María López", 25, 500.0);
 
-        String nombre_cuenta = JOptionPane.showInputDialog("Ingrese el nombre del titular:");
-        int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del titular:"));
-        int saldo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el saldo inicial:"));
+        // Mostrar información de las cuentas
+        cuenta1.mostrarInfo();
+        cuenta2.mostrarInfo();
 
-        cuentas.crear_cuenta(nombre_cuenta, edad, saldo);
+        // Realizar operaciones en la cuenta 1
+        cuenta1.consultarSaldo();
+        cuenta1.ingresarEfectivo(200.0);
+        cuenta1.consultarSaldo();
+        cuenta1.retirarEfectivo(300.0);
+        cuenta1.consultarSaldo();
 
+        // Realizar operaciones en la cuenta 2
+        cuenta2.consultarSaldo();
+        cuenta2.retirarEfectivo(600.0); // Fondos insuficientes
+        cuenta2.consultarSaldo();
+
+        // Transferir de la cuenta 1 a la cuenta 2
+        cuenta1.depositarOtraCuenta(cuenta2, 400.0);
+        cuenta1.consultarSaldo();
+        cuenta2.consultarSaldo();
     }
 }
-
