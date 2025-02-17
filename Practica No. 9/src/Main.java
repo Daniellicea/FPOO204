@@ -10,12 +10,11 @@ public class Main {
         Funciones Fun = new Funciones();
         Cuentas cuentas = new Cuentas();
 
-
         String nombre_cuenta = JOptionPane.showInputDialog("Ingrese el nombre del titular:");
         int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del titular:"));
         int saldo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el saldo inicial:"));
 
-        cuentas.crear_cuenta(Id_cuenta, no_cuenta, nombre_cuenta, edad, saldo);
+        cuentas.crear_cuenta(nombre_cuenta, edad, saldo);
 
     }
 }
