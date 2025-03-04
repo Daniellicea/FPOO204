@@ -4,6 +4,6 @@ public class Spartan4 extends Spartan {
     }
 
     public void usaPropulsores(){
-        System.out.println("El espartan" + nombre + "usa propulsores para mmoverse rapidamente");
+        System.out.println("El espartan" + nombre + " usa propulsores para mmoverse rapidamente");
     }
 }

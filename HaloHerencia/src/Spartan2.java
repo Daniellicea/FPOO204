@@ -5,6 +5,6 @@ public class Spartan2 extends Spartan {
     }
 
     public void usarManejoAvanzado(){
-        System.out.println("El espartan" + nombre + "tiene escudo extra y tacticas");
+        System.out.println("El espartan" + nombre + " tiene escudo extra y tacticas");
     }
 }

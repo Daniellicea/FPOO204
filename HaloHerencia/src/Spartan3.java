@@ -5,6 +5,6 @@ public class Spartan3 extends  Spartan {
     }
 
     public void camuflajeActivo(){
-        System.out.println("El espartan" + nombre + "cuenta con camuflaje activo para invisibilidad");
+        System.out.println("El espartan" + nombre + " cuenta con camuflaje activo para invisibilidad");
     }
 }

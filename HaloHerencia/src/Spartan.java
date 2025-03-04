@@ -10,7 +10,7 @@ public class Spartan extends Soldado{
 
     public void recargarEscudo(){
         escudo = 100;
-        System.out.println("Soldado: " + nombre + "recargo su escudo al maximo");
+        System.out.println("Soldado: " + nombre + " recargo su escudo al maximo");
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Spartan extends Soldado{
                 salud += escudo;
                 escudo = 0;
             }
-            System.out.println("Soldado: " + nombre + "recibio daño, Escudera: " + escudo + "Salud: " + salud );
+            System.out.println("Soldado: " + nombre + " recibio daño, Escudera: " + escudo + " Salud: " + salud );
 
         }else {
             super.recibirDano(dano);
