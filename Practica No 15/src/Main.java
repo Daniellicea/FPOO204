@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+
+
         ArrayList<Empleado> empleados = new ArrayList<>();
         while (true) {
             String[] opciones = {"Agregar Empleado", "Listar Empleados", "Salir"};
@@ -27,6 +29,7 @@ public class Main {
                 }
             } else if (eleccion == 1) {
                 StringBuilder listaEmpleados = new StringBuilder();
+
                 for (Empleado emp : empleados) {
                     emp.mostrarInfo();
                 }

@@ -13,6 +13,7 @@ public class Spartan {
         this.salud = salud;
     }
 
+
     //Metodo del espartan
 
     public void mostrarInfo() {
@@ -26,6 +27,10 @@ public class Spartan {
 
     public void atacar(String enemigo) {
         System.out.println(nombre + " ataca a " + enemigo + " con " + armaPrincipal);
+    }
+
+    public void obtener_los_ultimos_tres_dijitos(String nombre) {
+        String Nom =  nombre.;
     }
 
     public void recargarArma(int municiones) {
@@ -74,4 +79,6 @@ public class Spartan {
     public void setArmaPrincipal(String armaPrincipal) {
         this.armaPrincipal = armaPrincipal;
     }
+
+   }
 }

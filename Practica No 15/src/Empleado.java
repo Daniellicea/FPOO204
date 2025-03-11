@@ -16,3 +16,4 @@ public class Empleado {
                 "Nombre: " + nombre + "\nID: " + id + "\nSalario: $" + salario);
     }
 }
+
