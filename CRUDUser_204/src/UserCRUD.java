@@ -21,7 +21,7 @@ public class UserCRUD {
             ps.setString(3,contra);
             return ps.executeUpdate()>0;
         }catch(SQLException e){
-            System.out.println("Error al creal al usuario "+e.getMessage());
+            System.out.println("Error al crear al usuario "+e.getMessage());
             return false;
         }
     }
