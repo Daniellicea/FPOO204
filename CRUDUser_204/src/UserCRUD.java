@@ -27,7 +27,7 @@ public class UserCRUD {
     }
     
     public ResultSet Buscar_por_id (int id){
-        String sq_buscar_id = "Select * from usuarios where id_usuario1 = ? ";
+        String sq_buscar_id = "Select * from usuarios where id_usuario = ? ";
         try{
             PreparedStatement ps = conexion.prepareStatement(sq_buscar_id);
             ps.setInt(1, id);
@@ -38,6 +38,17 @@ public class UserCRUD {
         }
     }
     
+    public ResultSet obtenerTodos (){
+        String sqlTodos="select * from usuarios";
+        
+        try{
+            PreparedStatement ps = conexion.prepareStatement(sqlTodos);
+            return ps.executeQuery(); //me retorna la consulta de todos los usuarios 
+        }catch(SQLException s){
+            System.out.println("Error al consultar todos" + s.getMessage());
+            return null;
+        }
+    }
     
     
 }

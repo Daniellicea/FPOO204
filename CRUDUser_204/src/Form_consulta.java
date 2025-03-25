@@ -26,6 +26,7 @@ public class Form_consulta extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btn_mostrar_todos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -38,7 +39,7 @@ public class Form_consulta extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("CONSULTA DE USUARIOS");
@@ -71,6 +72,18 @@ public class Form_consulta extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         btn_mostrar_todos.setText("Mostrar Todos");
+        btn_mostrar_todos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_mostrar_todosActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Limpiar tabla");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,7 +110,9 @@ public class Form_consulta extends javax.swing.JFrame {
                         .addGap(161, 161, 161))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_mostrar_todos)
-                        .addGap(231, 231, 231))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
+                        .addGap(144, 144, 144))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +128,9 @@ public class Form_consulta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_mostrar_todos)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_mostrar_todos)
+                    .addComponent(jButton1))
                 .addGap(89, 89, 89))
         );
 
@@ -147,6 +164,33 @@ public class Form_consulta extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btn_buscarActionPerformed
 
+    private void btn_mostrar_todosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mostrar_todosActionPerformed
+        ResultSet todos = crud.obtenerTodos();
+        DefaultTableModel modeloT = (DefaultTableModel) jTable1.getModel() ;
+        modeloT.setRowCount (0);
+        
+        try{
+            while(todos.next()){
+                modeloT.addRow(new Object[]{todos.getInt("id_usuario"),todos.getString("nombre"),todos.getString("correo"),todos.getString("contrasenia")});
+            }
+        }catch(SQLException x){
+            System.out.println("Error al llenar la tabla  "+x.getMessage());
+           
+        }
+
+    }//GEN-LAST:event_btn_mostrar_todosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        limpiar_campo();
+    }//GEN-LAST:event_jButton1ActionPerformed
+     private  void limpiar_campo(){
+        DefaultTableModel modeloT = (DefaultTableModel) jTable1.getModel() ;
+        modeloT.setRowCount (0);
+        
+        modeloT.addRow(new Object[]{"","","",""});
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -185,6 +229,7 @@ public class Form_consulta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_mostrar_todos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
