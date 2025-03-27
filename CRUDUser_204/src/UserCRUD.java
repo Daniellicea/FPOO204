@@ -38,6 +38,20 @@ public class UserCRUD {
         }
     }
     
+        public boolean actualizar_datos (String nombre, String correo, String contra){
+        String actualizar = "update usuarios set nombre = ?, correo = ?, contrasenia = ? ";
+        try{
+            PreparedStatement ps = conexion.prepareStatement(actualizar);
+            ps.setString(1,nombre);
+            ps.setString(2,correo);
+            ps.setString(3,contra);
+            return ps.executeUpdate()>0;
+        }catch(SQLException e){
+            System.out.println("Error al atualizar al usuario "+e.getMessage());
+            return false;
+        }
+    }
+    
     public ResultSet obtenerTodos (){
         String sqlTodos="select * from usuarios";
         

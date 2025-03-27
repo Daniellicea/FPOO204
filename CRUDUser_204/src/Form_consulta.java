@@ -148,6 +148,7 @@ public class Form_consulta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El id es obligatorio","Error",JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
         try{
             int id = Integer.parseInt(id_text);
             ResultSet rs = crud.Buscar_por_id(id);
