@@ -26,6 +26,21 @@ public class UserCRUD {
         }
     }
     
+    public  boolean Eliminar_usuario (int ID){
+        String DeleteSQL="delete from usuarios where id_usuario = ?;";
+        
+        try{
+            PreparedStatement ps = conexion.prepareStatement(DeleteSQL);
+            ps.setInt(1,ID);
+            
+            return ps.executeUpdate()>0;
+        }catch(SQLException e){
+            System.out.println("Error al eliminar usuario "+e.getMessage());
+            return false;
+        }
+    }
+    
+    
     public ResultSet Buscar_por_id (int id){
         String sq_buscar_id = "Select * from usuarios where id_usuario = ? ";
         try{
