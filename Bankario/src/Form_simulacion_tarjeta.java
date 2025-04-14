@@ -1,15 +1,22 @@
 
-public class Form_simulacion_tarjeta extends javax.swing.JFrame {
+import javax.swing.ImageIcon;
 
+
+public class Form_simulacion_tarjeta extends javax.swing.JFrame {
+    
+    ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("com/images/Logo.png"));
     public Form_simulacion_tarjeta() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
+        this.setResizable(false);
+        this.setIconImage(img.getImage());
     }
     
     private int idUsuario;
     public Form_simulacion_tarjeta(int idUsuario) {
             initComponents();
             this.idUsuario = idUsuario;
-            String nombre = new Usuario().obtenerNombreUsuario(idUsuario);
+            String nombre = new Usuario().obtener_nombre_completo(idUsuario);
              txt_usuario.setText(nombre);             
     }
     
@@ -24,26 +31,19 @@ public class Form_simulacion_tarjeta extends javax.swing.JFrame {
         txt_usuario = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         txt_cv = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         txt_no_tarjeta = new javax.swing.JLabel();
         txt_titular = new javax.swing.JLabel();
         txt_fecha_vencimiento = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btn_realizar_retiro = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         btn_crear = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -76,46 +76,28 @@ public class Form_simulacion_tarjeta extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Simulacion");
+        jLabel5.setText("Simulación");
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel7.setText("CV:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 265, -1, -1));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/tarjeta_credito_letras.png"))); // NOI18N
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 80, 421, 270));
+        txt_cv.setFont(new java.awt.Font("Courier New", 0, 24)); // NOI18N
+        txt_cv.setForeground(new java.awt.Color(242, 242, 242));
+        jPanel3.add(txt_cv, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 220, 60, 30));
 
-        txt_cv.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jPanel3.add(txt_cv, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 190, 40));
+        txt_no_tarjeta.setFont(new java.awt.Font("Courier New", 0, 24)); // NOI18N
+        txt_no_tarjeta.setForeground(new java.awt.Color(242, 242, 242));
+        jPanel3.add(txt_no_tarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 350, 40));
 
-        jLabel16.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel16.setText("Titular:");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        txt_titular.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        txt_titular.setForeground(new java.awt.Color(242, 242, 242));
+        jPanel3.add(txt_titular, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 410, 30));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/tarjeta_credito.png"))); // NOI18N
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 421, 270));
-
-        jLabel19.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel19.setText("No. tarjeta:");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
-
-        txt_no_tarjeta.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jPanel3.add(txt_no_tarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 350, 40));
-
-        txt_titular.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jPanel3.add(txt_titular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 430, 40));
-
-        txt_fecha_vencimiento.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jPanel3.add(txt_fecha_vencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 180, 40));
-
-        jLabel20.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel20.setText("Fecha de vencimiento:");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        txt_fecha_vencimiento.setFont(new java.awt.Font("Courier New", 0, 24)); // NOI18N
+        txt_fecha_vencimiento.setForeground(new java.awt.Color(242, 242, 242));
+        jPanel3.add(txt_fecha_vencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 140, 40));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -127,7 +109,7 @@ public class Form_simulacion_tarjeta extends javax.swing.JFrame {
         btn_realizar_retiro.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         btn_realizar_retiro.setForeground(new java.awt.Color(242, 242, 242));
         btn_realizar_retiro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btn_realizar_retiro.setText("Empezar simulacion");
+        btn_realizar_retiro.setText("Empezar simulación");
         btn_realizar_retiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_realizar_retiro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,22 +125,12 @@ public class Form_simulacion_tarjeta extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_realizar_retiro, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_realizar_retiro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 360, 60));
-
-        jSeparator1.setForeground(new java.awt.Color(36, 36, 36));
-        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 490, 10));
-
-        jSeparator2.setForeground(new java.awt.Color(36, 36, 36));
-        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 440, 10));
-
-        jSeparator3.setForeground(new java.awt.Color(36, 36, 36));
-        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 360, 10));
-
-        jSeparator4.setForeground(new java.awt.Color(36, 36, 36));
-        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 200, 10));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 360, 60));
 
         jPanel5.setBackground(new java.awt.Color(36, 36, 36));
 
@@ -177,14 +149,27 @@ public class Form_simulacion_tarjeta extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_crear, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_crear, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_crear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 260, 60));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 260, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Tarjeta.png"))); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+
+        jLabel7.setText("jLabel7");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/tarjeta_atras.png"))); // NOI18N
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/icono regreso.png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -206,29 +191,32 @@ public class Form_simulacion_tarjeta extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addGap(112, 112, 112)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel15)
-                .addGap(5, 5, 5)
-                .addComponent(txt_usuario)
-                .addGap(285, 285, 285))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12)
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_usuario))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1198, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,7 +279,7 @@ public class Form_simulacion_tarjeta extends javax.swing.JFrame {
         String cvv = String.valueOf((int) (Math.random() * 900 + 100)); // CVV de 3 dígitos
         
         Usuario usuario = new Usuario();
-        String nombreUsuario = usuario.obtenerNombreUsuario(this.idUsuario);
+        String nombreUsuario = usuario.obtener_nombre_completo(this.idUsuario);
         
         String fechaVencimiento = generarFechaVencimiento();
 
@@ -350,27 +338,20 @@ public class Form_simulacion_tarjeta extends javax.swing.JFrame {
     private javax.swing.JLabel btn_realizar_retiro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel txt_cv;
     private javax.swing.JLabel txt_fecha_vencimiento;
     private javax.swing.JLabel txt_no_tarjeta;

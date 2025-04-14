@@ -1,9 +1,16 @@
 
+import javax.swing.ImageIcon;
+
+
 public class Menu_principal extends javax.swing.JFrame {
+    ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("com/images/Logo.png"));
 
     
     public Menu_principal() {
         initComponents();
+        this.setResizable(false);
+        this.dispose();
+        this.setIconImage(img.getImage());
     }
     
     private int idUsuario; // Variable para almacenar el ID
@@ -14,7 +21,7 @@ public class Menu_principal extends javax.swing.JFrame {
         this.idUsuario = idUsuario;
     
     
-        String nombre = new Usuario().obtenerNombreUsuario(idUsuario);
+        String nombre = new Usuario().obtener_nombre_completo(idUsuario);
         txt_usuario.setText(nombre);
 }
     
@@ -28,10 +35,6 @@ public class Menu_principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btn_actualizar = new javax.swing.JButton();
-        btn_foro_y_comunidad = new javax.swing.JButton();
-        btn_asesoramiento = new javax.swing.JButton();
-        btn_soporte_tecnico = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -39,9 +42,19 @@ public class Menu_principal extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        btn_simulacion_tarjeta1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        btn_soporte_tecnico = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btn_simulacion = new javax.swing.JLabel();
+        btn_actualizar_datos = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -62,50 +75,9 @@ public class Menu_principal extends javax.swing.JFrame {
         txt_usuario.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         txt_usuario.setForeground(new java.awt.Color(255, 255, 255));
         txt_usuario.setText("Usuario");
-        jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 50, -1, -1));
+        jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 50, -1, -1));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btn_actualizar.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        btn_actualizar.setText("Actualizar datos");
-        btn_actualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_actualizarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 417, -1));
-
-        btn_foro_y_comunidad.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        btn_foro_y_comunidad.setText("Foro y comunidad");
-        btn_foro_y_comunidad.setBorder(null);
-        btn_foro_y_comunidad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_foro_y_comunidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_foro_y_comunidadActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_foro_y_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, 417, -1));
-
-        btn_asesoramiento.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        btn_asesoramiento.setText("Asesoramiento");
-        btn_asesoramiento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_asesoramiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_asesoramientoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_asesoramiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 170, 417, -1));
-
-        btn_soporte_tecnico.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        btn_soporte_tecnico.setText("Soporte técnico");
-        btn_soporte_tecnico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_soporte_tecnico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_soporte_tecnicoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_soporte_tecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 240, 417, -1));
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
@@ -138,27 +110,118 @@ public class Menu_principal extends javax.swing.JFrame {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/Imagen_menu.png"))); // NOI18N
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
 
-        btn_simulacion_tarjeta1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        btn_simulacion_tarjeta1.setText("Simulación de tarjeta");
-        btn_simulacion_tarjeta1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_simulacion_tarjeta1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_simulacion_tarjeta1ActionPerformed(evt);
+        jPanel4.setBackground(new java.awt.Color(80, 80, 80));
+        jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
             }
         });
-        jPanel2.add(btn_simulacion_tarjeta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 310, 417, -1));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("FORO Y COMUNIDAD");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 60));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 420, 60));
+
+        jPanel12.setBackground(new java.awt.Color(80, 80, 80));
+        jPanel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel12MouseClicked(evt);
+            }
+        });
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("ASESORAMIENTO");
+        jPanel12.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 60));
+
+        jPanel2.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 170, 420, 60));
+
+        btn_soporte_tecnico.setBackground(new java.awt.Color(80, 80, 80));
+        btn_soporte_tecnico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_soporte_tecnico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_soporte_tecnicoMouseClicked(evt);
+            }
+        });
+        btn_soporte_tecnico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("SOPORTE TECNICO");
+        btn_soporte_tecnico.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 60));
+
+        jPanel2.add(btn_soporte_tecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, 420, 60));
+
+        jPanel5.setBackground(new java.awt.Color(80, 80, 80));
+        jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_simulacion.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        btn_simulacion.setForeground(new java.awt.Color(255, 255, 255));
+        btn_simulacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btn_simulacion.setText("SIMULACION");
+        jPanel5.add(btn_simulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 60));
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 330, 420, 60));
+
+        btn_actualizar_datos.setBackground(new java.awt.Color(80, 80, 80));
+        btn_actualizar_datos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_actualizar_datos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_actualizar_datosMouseClicked(evt);
+            }
+        });
+        btn_actualizar_datos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("ACTUALIZAR DATOS");
+        btn_actualizar_datos.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 60));
+
+        jPanel2.add(btn_actualizar_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 410, 420, 60));
+
+        jPanel6.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setBackground(new java.awt.Color(255, 0, 0));
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("CERRAR SESION");
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 60));
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, 420, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1510, 810));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Usuario:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 50, -1, -1));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 30, 80, 80));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 50, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/barra de busqueda.png"))); // NOI18N
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,48 +235,50 @@ public class Menu_principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    
+    
+        
+                
+    
+    
+        
+        
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        Form_foro_y_comunidad nuevoFormulario = new Form_foro_y_comunidad(this.idUsuario);        
+        nuevoFormulario.setVisible(true);      
+        this.dispose();
+    }//GEN-LAST:event_jPanel4MouseClicked
 
-    private void btn_soporte_tecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_soporte_tecnicoActionPerformed
-        // TODO add your handling code here:
+    private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
+        Form_asesoramiento nuevoFormulario = new Form_asesoramiento(this.idUsuario);        
+        nuevoFormulario.setVisible(true);      
+        this.dispose();
+    }//GEN-LAST:event_jPanel12MouseClicked
+
+    private void btn_soporte_tecnicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_soporte_tecnicoMouseClicked
         Form_soporte nuevoFormulario = new Form_soporte(this.idUsuario);
         nuevoFormulario.setVisible(true);
         
-        this.dispose();
-    }//GEN-LAST:event_btn_soporte_tecnicoActionPerformed
-    
-    private void btn_asesoramientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asesoramientoActionPerformed
-        // TODO add your handling code here:
-        Form_asesoramiento nuevoFormulario = new Form_asesoramiento(this.idUsuario);
-        nuevoFormulario.setVisible(true);
-        
-        this.dispose();
-    }//GEN-LAST:event_btn_asesoramientoActionPerformed
+        this.dispose();        this.dispose();    }//GEN-LAST:event_btn_soporte_tecnicoMouseClicked
 
-    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        // TODO add your handling code here:
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        Form_simulacion_tarjeta nuevoFormulario = new Form_simulacion_tarjeta(this.idUsuario);        
+        nuevoFormulario.setVisible(true);       
+        this.dispose();
+    }//GEN-LAST:event_jPanel5MouseClicked
+
+    private void btn_actualizar_datosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizar_datosMouseClicked
         Form_actualizar nuevoFormulario = new Form_actualizar(this.idUsuario);
         nuevoFormulario.setVisible(true);
-        
-        this.dispose();
-    }//GEN-LAST:event_btn_actualizarActionPerformed
+                     this.dispose();    }//GEN-LAST:event_btn_actualizar_datosMouseClicked
 
-    private void btn_foro_y_comunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_foro_y_comunidadActionPerformed
-        // TODO add your handling code here
-        Form_foro_y_comunidad nuevoFormulario = new Form_foro_y_comunidad(this.idUsuario);
-        
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        Form_inicio nuevoFormulario = new Form_inicio();
         nuevoFormulario.setVisible(true);
         
         this.dispose();
-    }//GEN-LAST:event_btn_foro_y_comunidadActionPerformed
-
-    private void btn_simulacion_tarjeta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simulacion_tarjeta1ActionPerformed
-        // TODO add your handling code here:
-        Form_simulacion_tarjeta nuevoFormulario = new Form_simulacion_tarjeta(this.idUsuario);
-        
-        nuevoFormulario.setVisible(true);
-        
-        this.dispose();
-    }//GEN-LAST:event_btn_simulacion_tarjeta1ActionPerformed
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -252,17 +317,19 @@ public class Menu_principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Lb_usuario;
-    private javax.swing.JButton btn_actualizar;
-    private javax.swing.JButton btn_asesoramiento;
-    private javax.swing.JButton btn_foro_y_comunidad;
-    private javax.swing.JButton btn_simulacion_tarjeta1;
-    private javax.swing.JButton btn_soporte_tecnico;
+    private javax.swing.JPanel btn_actualizar_datos;
+    private javax.swing.JLabel btn_simulacion;
+    private javax.swing.JPanel btn_soporte_tecnico;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -271,8 +338,12 @@ public class Menu_principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel txt_usuario;
     // End of variables declaration//GEN-END:variables
 }

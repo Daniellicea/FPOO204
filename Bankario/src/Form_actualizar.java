@@ -1,14 +1,18 @@
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
 public class Form_actualizar extends javax.swing.JFrame {
-    
+    ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("com/images/Logo.png"));
+
     private Usuario usuario;
     public Form_actualizar() {
         initComponents();
         usuario =  new Usuario();
-       
+        this.setResizable(false);
+        this.setLocationRelativeTo(this);
+        this.setIconImage(img.getImage());
         
     }
        private int idUsuario;
@@ -18,13 +22,14 @@ public class Form_actualizar extends javax.swing.JFrame {
         this.idUsuario = idUsuario;
         this.usuario = new Usuario();
         
-        String datos = new Usuario().cargarDatosUsuario(idUsuario);
+        String datos = new Usuario().cargar_datos_usuario(idUsuario);
         if(datos != null) {
              String[] partes = datos.split("\\|\\|\\|");
                 txt_actualizar_nombre.setText(partes[0]);
-                txt_actualizar_apellidos.setText(partes[1]);
-                txt_actualizar_correo.setText(partes[2]);
-                txt_actualizar_contrasenia.setText(partes[3]);
+                txt_actualizar_apellido_paterno.setText(partes[1]);
+                txt_actualizar_apellido_materno.setText(partes[2]);
+                txt_actualizar_correo.setText(partes[3]);
+                txt_actualizar_contrasenia.setText(partes[4]);
         }
     }
 
@@ -47,11 +52,14 @@ public class Form_actualizar extends javax.swing.JFrame {
         txt_actualizar_nombre = new javax.swing.JTextField();
         txt_actualizar_correo = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
-        txt_actualizar_apellidos = new javax.swing.JTextField();
+        txt_actualizar_apellido_materno = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txt_actualizar_contrasenia = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
+        txt_actualizar_apellido_paterno = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,8 +75,8 @@ public class Form_actualizar extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(80, 80, 80));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel5.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 171, 9));
-        jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 171, -1));
+        jPanel5.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 171, 9));
+        jPanel5.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 171, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,7 +93,7 @@ public class Form_actualizar extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nombre:");
-        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 60, 30));
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 60, 30));
 
         btn_registrar.setBackground(new java.awt.Color(36, 36, 36));
         btn_registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,9 +112,7 @@ public class Form_actualizar extends javax.swing.JFrame {
         btn_registrar.setLayout(btn_registrarLayout);
         btn_registrarLayout.setHorizontalGroup(
             btn_registrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_registrarLayout.createSequentialGroup()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
         );
         btn_registrarLayout.setVerticalGroup(
             btn_registrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,12 +121,12 @@ public class Form_actualizar extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel5.add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 160, -1));
+        jPanel5.add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 160, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Contraseña:");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 80, 30));
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 80, 30));
 
         txt_actualizar_nombre.setBackground(new java.awt.Color(80, 80, 80));
         txt_actualizar_nombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,47 +136,58 @@ public class Form_actualizar extends javax.swing.JFrame {
                 txt_actualizar_nombreActionPerformed(evt);
             }
         });
-        jPanel5.add(txt_actualizar_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 170, 20));
+        jPanel5.add(txt_actualizar_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 170, 20));
 
         txt_actualizar_correo.setBackground(new java.awt.Color(80, 80, 80));
         txt_actualizar_correo.setForeground(new java.awt.Color(255, 255, 255));
         txt_actualizar_correo.setBorder(null);
-        jPanel5.add(txt_actualizar_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 170, 20));
-        jPanel5.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 171, -1));
+        jPanel5.add(txt_actualizar_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 170, 20));
+        jPanel5.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 170, -1));
 
-        txt_actualizar_apellidos.setBackground(new java.awt.Color(80, 80, 80));
-        txt_actualizar_apellidos.setForeground(new java.awt.Color(255, 255, 255));
-        txt_actualizar_apellidos.setBorder(null);
-        jPanel5.add(txt_actualizar_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 170, 20));
+        txt_actualizar_apellido_materno.setBackground(new java.awt.Color(80, 80, 80));
+        txt_actualizar_apellido_materno.setForeground(new java.awt.Color(255, 255, 255));
+        txt_actualizar_apellido_materno.setBorder(null);
+        jPanel5.add(txt_actualizar_apellido_materno, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 170, 20));
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Apellidos:");
-        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 30));
+        jLabel11.setText("Apellido materno:");
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 120, 30));
 
         txt_actualizar_contrasenia.setBackground(new java.awt.Color(80, 80, 80));
         txt_actualizar_contrasenia.setForeground(new java.awt.Color(255, 255, 255));
         txt_actualizar_contrasenia.setBorder(null);
-        jPanel5.add(txt_actualizar_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 170, 20));
-        jPanel5.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 171, -1));
+        jPanel5.add(txt_actualizar_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 170, 20));
+        jPanel5.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 171, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Correo:");
-        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 200, 50, 30));
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 50, 30));
+        jPanel5.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 171, -1));
+
+        txt_actualizar_apellido_paterno.setBackground(new java.awt.Color(80, 80, 80));
+        txt_actualizar_apellido_paterno.setForeground(new java.awt.Color(255, 255, 255));
+        txt_actualizar_apellido_paterno.setBorder(null);
+        jPanel5.add(txt_actualizar_apellido_paterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 170, 20));
+
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Apellido paterno:");
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 526, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(47, 47, 47))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(136, 136, 136)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +195,7 @@ public class Form_actualizar extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -192,7 +209,7 @@ public class Form_actualizar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 159, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -213,7 +230,7 @@ public class Form_actualizar extends javax.swing.JFrame {
         );
         if(opcion == JOptionPane.YES_OPTION){
             if (!txt_actualizar_nombre.getText().isEmpty()&&!txt_actualizar_correo.getText().isEmpty()&&!txt_actualizar_contrasenia.getText().isEmpty()){
-                boolean rs = usuario.actualizar_datos(this.idUsuario, txt_actualizar_nombre.getText(), txt_actualizar_apellidos.getText(), txt_actualizar_correo.getText(), txt_actualizar_contrasenia.getText());
+                boolean rs = usuario.actualizar_datos(this.idUsuario, txt_actualizar_nombre.getText(), txt_actualizar_apellido_paterno.getText(), txt_actualizar_apellido_materno.getText(), txt_actualizar_correo.getText(), txt_actualizar_contrasenia.getText());
                 JOptionPane.showMessageDialog(this, "Actializacion exitosa","Actualizar",JOptionPane.INFORMATION_MESSAGE);
             }else{
                 JOptionPane.showMessageDialog(this, "Los campos no deben estar vacios","Error",JOptionPane.ERROR_MESSAGE);
@@ -237,6 +254,7 @@ public class Form_actualizar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
@@ -248,7 +266,9 @@ public class Form_actualizar extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextField txt_actualizar_apellidos;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JTextField txt_actualizar_apellido_materno;
+    private javax.swing.JTextField txt_actualizar_apellido_paterno;
     private javax.swing.JTextField txt_actualizar_contrasenia;
     private javax.swing.JTextField txt_actualizar_correo;
     private javax.swing.JTextField txt_actualizar_nombre;

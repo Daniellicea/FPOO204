@@ -1,4 +1,4 @@
-import java.awt.Color;
+
 import  java.sql.Connection;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -29,15 +29,18 @@ public class Form_registro extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        txt_apellidos = new javax.swing.JTextField();
+        txt_apellido_materno = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         txt_correo = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         txt_contrasenia = new javax.swing.JPasswordField();
         jSeparator3 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        txt_apellido_paterno = new javax.swing.JTextField();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -111,7 +114,7 @@ public class Form_registro extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Crear cuenta");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 180, 37));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 180, 37));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/boton_limpiar.png"))); // NOI18N
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -125,7 +128,7 @@ public class Form_registro extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 111, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 111, -1));
 
         txt_usuario.setBackground(new java.awt.Color(80, 80, 80));
         txt_usuario.setForeground(new java.awt.Color(204, 204, 204));
@@ -143,29 +146,29 @@ public class Form_registro extends javax.swing.JFrame {
                 txt_usuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 171, 20));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 171, 9));
+        jPanel2.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 171, 20));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 171, 9));
 
-        txt_apellidos.setBackground(new java.awt.Color(80, 80, 80));
-        txt_apellidos.setForeground(new java.awt.Color(204, 204, 204));
-        txt_apellidos.setBorder(null);
-        txt_apellidos.addActionListener(new java.awt.event.ActionListener() {
+        txt_apellido_materno.setBackground(new java.awt.Color(80, 80, 80));
+        txt_apellido_materno.setForeground(new java.awt.Color(204, 204, 204));
+        txt_apellido_materno.setBorder(null);
+        txt_apellido_materno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_apellidosActionPerformed(evt);
+                txt_apellido_maternoActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 170, 20));
+        jPanel2.add(txt_apellido_materno, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 170, 20));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Apellidos");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 111, -1));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 171, 9));
+        jLabel5.setText("Apellido materno");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 111, -1));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 129, 171, 40));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Correo");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 111, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 111, -1));
 
         txt_correo.setBackground(new java.awt.Color(80, 80, 80));
         txt_correo.setForeground(new java.awt.Color(204, 204, 204));
@@ -176,19 +179,35 @@ public class Form_registro extends javax.swing.JFrame {
                 txt_correoActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 170, 20));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 171, -1));
+        jPanel2.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 170, 20));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contraseña");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 111, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 111, -1));
 
         txt_contrasenia.setBackground(new java.awt.Color(80, 80, 80));
         txt_contrasenia.setForeground(new java.awt.Color(204, 204, 204));
         txt_contrasenia.setBorder(null);
-        jPanel2.add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 170, 20));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 171, -1));
+        jPanel2.add(txt_contrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 170, 20));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 171, -1));
+
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Apellido paterno");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 111, -1));
+
+        txt_apellido_paterno.setBackground(new java.awt.Color(80, 80, 80));
+        txt_apellido_paterno.setForeground(new java.awt.Color(204, 204, 204));
+        txt_apellido_paterno.setBorder(null);
+        txt_apellido_paterno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_apellido_paternoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txt_apellido_paterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 170, 20));
+        jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 173, 171, 40));
+        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 171, 10));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 340, 360));
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
@@ -210,15 +229,16 @@ public class Form_registro extends javax.swing.JFrame {
         txt_usuario.setText("");
         txt_correo.setText("");
         txt_contrasenia.setText("");
-        txt_apellidos.setText("");
+        txt_apellido_materno.setText("");
+        txt_apellido_paterno.setText("");
     }
     private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_correoActionPerformed
 
-    private void txt_apellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_apellidosActionPerformed
+    private void txt_apellido_maternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_apellido_maternoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_apellidosActionPerformed
+    }//GEN-LAST:event_txt_apellido_maternoActionPerformed
 
     private void lb_iniciar_sesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_iniciar_sesionMouseClicked
         // TODO add your handling code here:
@@ -234,7 +254,6 @@ public class Form_registro extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_registrarMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-       //guardamos lo que contengan las cajas de texto
         String nom = txt_usuario.getText();
         String cor = txt_correo.getText();
         String con = txt_contrasenia.getText();
@@ -242,17 +261,17 @@ public class Form_registro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Formato de correo electrónico inválido","Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        String ape = txt_apellidos.getText();
+        String ape_pa = txt_apellido_paterno.getText();
+        String ape_ma = txt_apellido_materno.getText();
         //verificamos campos vacios
-        if (nom.isEmpty()  ||  cor.isEmpty() || con.isEmpty() || ape.isEmpty()){
+        if (nom.isEmpty()  ||  cor.isEmpty() || con.isEmpty() || ape_pa.isEmpty() || ape_ma.isEmpty()){
             JOptionPane.showMessageDialog(this,"Todos los campos son obligatorios","Error",JOptionPane.ERROR_MESSAGE );
             return ;
 
         }
         //insercion de datos en ka base de datos
         Usuario usur = new Usuario();
-        boolean status = usur.InsertUsuario(nom, ape, cor, con);
-
+        boolean status = usur.insertar_usuario(nom, ape_pa, ape_ma, cor, con);
         //Avisamos status de insersion
         if(status){
             JOptionPane.showMessageDialog(this,"Usuario guardado","Exito",JOptionPane.INFORMATION_MESSAGE );
@@ -302,6 +321,10 @@ public class Form_registro extends javax.swing.JFrame {
         limpiar_campo();
     }//GEN-LAST:event_jLabel12MouseClicked
 
+    private void txt_apellido_paternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_apellido_paternoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_apellido_paternoActionPerformed
+
     
     
     public static void main(String args[]) {
@@ -324,14 +347,17 @@ public class Form_registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lb_iniciar_sesion;
-    private javax.swing.JTextField txt_apellidos;
+    private javax.swing.JTextField txt_apellido_materno;
+    private javax.swing.JTextField txt_apellido_paterno;
     private javax.swing.JPasswordField txt_contrasenia;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_usuario;

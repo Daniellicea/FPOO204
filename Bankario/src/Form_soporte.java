@@ -1,19 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
-/**
- *
- * @author Daniel
- */
+import javax.swing.ImageIcon;
+
+
 public class Form_soporte extends javax.swing.JFrame {
+    ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("com/images/Logo.png"));
 
-    /**
-     * Creates new form Form_soporte
-     */
+    
     public Form_soporte() {
         initComponents();
+        this.setResizable(false);
+        this.setIconImage(img.getImage());
     }
    
     private int idUsuario;
@@ -21,7 +17,7 @@ public class Form_soporte extends javax.swing.JFrame {
     public Form_soporte(int idUsuario) {
         initComponents();
         this.idUsuario = idUsuario;
-        String nombre = new Usuario().obtenerNombreUsuario(idUsuario);
+        String nombre = new Usuario().obtener_nombre_completo(idUsuario);
         txt_usuario.setText(nombre);
     }
    
@@ -185,7 +181,7 @@ public class Form_soporte extends javax.swing.JFrame {
         txt_usuario.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         txt_usuario.setForeground(new java.awt.Color(255, 255, 255));
         txt_usuario.setText("Usuario");
-        jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 52, -1, 40));
+        jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 60, -1, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/icono regreso.png"))); // NOI18N
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -194,16 +190,16 @@ public class Form_soporte extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 50, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Usuario:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 52, -1, 40));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, -1, 30));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/barra de busqueda.png"))); // NOI18N
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

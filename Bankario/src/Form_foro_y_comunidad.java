@@ -1,9 +1,10 @@
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
 public class Form_foro_y_comunidad extends javax.swing.JFrame {
-
+    ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("com/images/Logo.png"));
     
     public Form_foro_y_comunidad() {
         initComponents();
@@ -13,8 +14,10 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
     public Form_foro_y_comunidad(int idUsuario) {
             initComponents();
             this.idUsuario = idUsuario;
-            String nombre = new Usuario().obtenerNombreUsuario(idUsuario);
-              txt_usuario.setText(nombre);
+            String nombre = new Usuario().obtener_nombre_completo(idUsuario);
+            txt_usuario.setText(nombre);
+            this.setResizable(false);
+            this.setIconImage(img.getImage());
     }
  
     @SuppressWarnings("unchecked")
@@ -33,7 +36,7 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        txt_area = new java.awt.TextArea();
+        txt_opinion = new java.awt.TextArea();
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -47,7 +50,7 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        btn_registrar = new javax.swing.JPanel();
+        btn_registrar_opinion = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -105,7 +108,7 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel15.setText("¡¡¡Da tu opinion!!!");
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 48, -1, -1));
-        jPanel3.add(txt_area, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 330, 134));
+        jPanel3.add(txt_opinion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 330, 134));
 
         jLabel14.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel14.setText("en los intereses.");
@@ -159,18 +162,18 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
         jLabel27.setText("Nunca había usado tarjetas de crédito antes, pero gracias al asesoramiento, ");
         jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 882, -1));
 
-        btn_registrar.setBackground(new java.awt.Color(36, 36, 36));
-        btn_registrar.setForeground(new java.awt.Color(3, 23, 22));
-        btn_registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_registrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_registrar_opinion.setBackground(new java.awt.Color(36, 36, 36));
+        btn_registrar_opinion.setForeground(new java.awt.Color(3, 23, 22));
+        btn_registrar_opinion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_registrar_opinion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_registrarMouseClicked(evt);
+                btn_registrar_opinionMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_registrarMouseEntered(evt);
+                btn_registrar_opinionMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_registrarMouseExited(evt);
+                btn_registrar_opinionMouseExited(evt);
             }
         });
 
@@ -182,9 +185,9 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
                 jLabel7MouseClicked(evt);
             }
         });
-        btn_registrar.add(jLabel7);
+        btn_registrar_opinion.add(jLabel7);
 
-        jPanel3.add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 170, 30));
+        jPanel3.add(btn_registrar_opinion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 170, 30));
 
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/boton_limpiar.png"))); // NOI18N
         jLabel28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -281,7 +284,7 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         //guardamos lo que contengan las cajas de texto
-        String area = txt_area.getText();
+        String area = txt_opinion.getText();
         
         //verificamos campos vacios
         if (area.isEmpty()){
@@ -305,16 +308,30 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
         limpiar_campo();
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void btn_registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrarMouseClicked
-    }//GEN-LAST:event_btn_registrarMouseClicked
+    private void btn_registrar_opinionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrar_opinionMouseClicked
+    }//GEN-LAST:event_btn_registrar_opinionMouseClicked
 
-    private void btn_registrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrarMouseEntered
-      
-    }//GEN-LAST:event_btn_registrarMouseEntered
+    private void btn_registrar_opinionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrar_opinionMouseEntered
+        String contenido = txt_opinion.getText();
+        if (contenido.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "¡La opinión no puede estar vacía!", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Usuario usur = new Usuario();
+        boolean exito = usur.agregar_opinion(idUsuario, contenido);
+    
+        // 5. Mostrar mensaje de éxito o error
+        if (exito) {
+            JOptionPane.showMessageDialog(this, "¡Opinión registrada con éxito!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            txt_opinion.setText(""); // Limpiar el campo después de guardar
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al guardar la opinión", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btn_registrar_opinionMouseEntered
 
-    private void btn_registrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrarMouseExited
+    private void btn_registrar_opinionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_registrar_opinionMouseExited
         
-    }//GEN-LAST:event_btn_registrarMouseExited
+    }//GEN-LAST:event_btn_registrar_opinionMouseExited
 
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
         limpiar_campo();
@@ -332,7 +349,7 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
     
     private  void limpiar_campo(){
-        txt_area.setText("");
+        txt_opinion.setText("");
         
     }
     
@@ -367,7 +384,7 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btn_registrar;
+    private javax.swing.JPanel btn_registrar_opinion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -398,7 +415,7 @@ public class Form_foro_y_comunidad extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private java.awt.TextArea txt_area;
+    private java.awt.TextArea txt_opinion;
     private javax.swing.JLabel txt_usuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -186,7 +186,9 @@ public class Form_inicio extends javax.swing.JFrame {
         btn_registrar.setLayout(btn_registrarLayout);
         btn_registrarLayout.setHorizontalGroup(
             btn_registrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addGroup(btn_registrarLayout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 26, Short.MAX_VALUE))
         );
         btn_registrarLayout.setVerticalGroup(
             btn_registrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +197,7 @@ public class Form_inicio extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel5.add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 100, -1));
+        jPanel5.add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 100, -1));
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 40, 340, 320));
 
@@ -214,7 +216,9 @@ public class Form_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_correoActionPerformed
 
     private void lb_olvido_contraseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_olvido_contraseñaMouseClicked
-     
+        Form_olvido_contraseña menu = new Form_olvido_contraseña();
+        menu.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_lb_olvido_contraseñaMouseClicked
 
@@ -237,12 +241,11 @@ public class Form_inicio extends javax.swing.JFrame {
         boolean credencialesValidas = usuario.verificar_inicio_sesion(cor, con);
         
         if (credencialesValidas) {            
-            int idUsuario = usuario.obtenerIdUsuario(cor);
+            int idUsuario = usuario.obtener_id_usuario(cor);
             
             if (idUsuario > 0) {                
                 
                 Menu_principal menu = new Menu_principal( idUsuario);
-                JOptionPane.showMessageDialog(this, idUsuario );
                 menu.setVisible(true);
                 this.dispose();
                 } else {
